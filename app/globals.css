@@ -18,7 +18,30 @@
 }
 
 body {
+  margin: 20px;
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  touch-action: pan-x pan-y;
+}
+
+:root:active-view-transition-type(navigation-back) {
+  &::view-transition-new(.slide-on-nav) {
+    animation: enter-slide-right ease-in 0.25s;
+  }
+  &::view-transition-old(.slide-on-nav) {
+    animation: exit-slide-right ease-in 0.25s;
+  }
+}
+
+:root:active-view-transition-type(navigation-forward) {
+  &::view-transition-new(.slide-on-nav) {
+    animation: enter-slide-left ease-in 0.25s;
+  }
+  &::view-transition-old(.slide-on-nav) {
+    animation: exit-slide-left ease-in 0.25s;
+  }
 }
